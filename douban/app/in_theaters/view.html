@@ -1,0 +1,17 @@
+<h1 class="page-header">{{title}}</h1>
+<div class="list-group">
+  <a href="#" class="list-group-item" ng-repeat="movie in movies track by $index">
+    <span class="badge">{{movie.rating.average}}</span>
+    <div class="media">
+      <div class="media-left" href="#">
+        <img ng-src="{{movie.images.small}}" alt="{{movie.title}}">
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading">{{movie.title}}</h3>
+        <p>类型：{{movie.genres.join('、')}}</p>
+        <p>导演：<span ng-repeat="director in movie.directors track by $index">{{director.name + ($last?'':'、')}}</span></p>
+        <p>主演：<span ng-repeat="cast in movie.casts track by $index">{{cast.name + ($last?'':'、')}}</span></p>
+      </div>
+    </div>
+  </a>
+</div>
